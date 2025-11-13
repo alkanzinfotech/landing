@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact • AlKanz • IT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="components/header-component.js"></script>
+  <script type="module" src="components/footer-component.js"></script>
+</head>
+<body>
+
+<header-component></header-component>
+
+<section class="section">
+  <div class="container grid" style="grid-template-columns:1fr 1.1fr">
+    <div class="card pad">
+      <h2>Contact Us</h2>
+      <p class="muted">Share your requirements and we’ll schedule a free site visit.</p>
+      <form class="contact-form" novalidate>
+        <div class="row">
+          <div><label>Name<br><input type="text" name="name" required></label></div>
+          <div><label>Phone<br><input type="tel" name="phone" required></label></div>
+        </div>
+        <div class="row">
+          <div><label>Email<br><input type="email" name="email" required></label></div>
+          <div><label>City<br><input type="text" name="city"></label></div>
+        </div>
+        <label>Message<br><textarea name="message" required></textarea></label>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <div class="card" style="overflow:hidden">
+      <div class="map-wrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+        <!-- Option A: No API key, address + output=embed -->
+        <iframe
+          title="AlKanz InfoTech Location"
+          src="https://www.google.com/maps?q=UNT%20NO%20-%202%2C%204TH%20FLOOR%2C%20A%20WING%2C%20TIME%20SQUARE%20BUILDING%2C%20MAROL%2C%20NILKANTH%20PARK%2C%20ANDHERI%20(E)%2C%20MUMBAI%2C%20400059&z=16&output=embed"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+
+        <!-- Option B: Official Maps Embed API (uncomment, add API key, and optionally Place name)
+        <iframe
+          title="AlKanz InfoTech Location"
+          src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=UNT+NO+-+2,+4TH+FLOOR,+A+WING,+TIME+SQUARE+BUILDING,+MAROL,+NILKANTH+PARK,+ANDHERI+(E),+MUMBAI,+400059&zoom=16"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+        -->
+      </div>
+      <div style="padding:8px 0;text-align:center;">
+      <a href="https://www.google.com/maps/search/?api=1&query=UNT+NO+-+2,+4TH+FLOOR,+A+WING,+TIME+SQUARE+BUILDING,+MAROL,+NILKANTH+PARK,+ANDHERI+(E),+MUMBAI,+400059" target="_blank" rel="noopener noreferrer"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer-component></footer-component>
+
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yealink • AlKanz • IT</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="../css/brand-pages.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="module" src="components/header-component.js"></script>
+  <script type="module" src="components/footer-component.js"></script>
+  <style>
+    /* Optional minor UX polish; remove if already in your CSS */
+    .brand-hero .brand-logo-container { display:flex; justify-content:center; align-items:center; margin-bottom:16px; }
+    .product-card { display:block; border:1px solid #e7e7e7; border-radius:12px; overflow:hidden; background:#fff; transition:box-shadow .2s ease; }
+    .product-card:hover { box-shadow:0 6px 24px rgba(0,0,0,.08); }
+    .product-thumb { aspect-ratio: 4/3; background:#fafafa; display:flex; align-items:center; justify-content:center; }
+    .product-thumb img { max-width:100%; max-height:100%; object-fit:contain; }
+    .product-body { padding:14px 16px; }
+    .pill { display:inline-block; padding:3px 8px; border-radius:999px; background:#eef3ff; color:#335; font-size:.8rem; }
+    .brand-features-grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .brand-feature-card { padding:18px; border:1px solid #ececec; border-radius:12px; background:#fff; }
+    .products-section { padding:48px 0; }
+    .products-grid { display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+    .tabs { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:20px; }
+    .tab { padding:8px 12px; border:1px solid #ddd; border-radius:999px; background:#fff; cursor:pointer; }
+    .tab.active { background:#111; color:#fff; border-color:#111; }
+    .muted { color:#666; }
+    .subtle { color:#888; text-align:center; padding:12px 0; }
+    .section h2 { text-align:center; margin-bottom:24px; }
+  </style>
+</head>
+<body>
+
+<header-component></header-component>
+
+<section class="brand-hero section">
+  <div class="container">
+    <div class="brand-logo-container">
+      <img id="brandLogo" src="../images/brands/yealink Logo.png" alt="yealink" style="max-width: 100%; max-height: 80px; object-fit: contain;">
+    </div>
+    <h1 id="brandName">Yealink Communication Solutions</h1>
+    <p id="brandDesc" class="muted">We are working to bring you the complete range of Yealink products. Our team is curating the best communication solutions for your business needs.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:24px;">Featured Products</h2>
+    <div id="gridFeatured" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Video Bars</h2>
+    <div id="gridBars" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Cameras</h2>
+    <div id="gridCameras" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Phones</h2>
+    <div id="gridPhones" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>DECT</h2>
+    <div id="gridDect" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Headsets</h2>
+    <div id="gridHeadsets" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Speakerphones</h2>
+    <div id="gridSpeakerphones" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Room Peripherals</h2>
+    <div id="gridRoomPeripherals" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Accessories</h2>
+    <div id="gridAccessories" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>All Products</h2>
+    <div id="categoryTabs" class="tabs"></div>
+    <div id="gridAll" class="products-grid"></div>
+  </div>
+</section>
+
+<section class="brand-cta section">
+  <div class="container">
+    <h2>Need Yealink Products Urgently?</h2>
+    <p style="max-width: 600px; margin: 0 auto 32px;">Contact us for immediate assistance. Quotes for specific Yealink models available even before the full catalog is online.</p>
+    <a href="../contact.html" class="btn">Contact Our Sales Team</a>
+  </div>
+</section>
+
+<footer-component></footer-component>
+
+<script>
+  const BRAND = {
+    name: 'Yealink',
+    slug: 'yealink',
+    logo: '../images/brands/Yealink Logo.png',
+    description: 'UC endpoints and Microsoft Teams/Zoom Rooms devices: MeetingBar, MVC kits, cameras, IP phones, DECT, headsets, speakerphones, and accessories.'
+  };
+
+  // Consolidated catalog (curated from Yealink official A–Z and product families)
+  const CATALOG = [
+    // MeetingBar / MeetingBoard / MTR Kits
+    { id: 'meetingbar-a10', name: 'MeetingBar A10', category: 'Video Bars', thumb: 'images/yealink/meetingbar-a10.jpg', desc: 'Compact AI video bar for focus/huddle rooms' },
+    { id: 'meetingbar-a20', name: 'MeetingBar A20', category: 'Video Bars', thumb: 'images/yealink/meetingbar-a20.jpg', desc: 'All‑in‑one Android video bar for small rooms' },
+    { id: 'meetingbar-a30', name: 'MeetingBar A30', category: 'Video Bars', thumb: 'images/yealink/meetingbar-a30.jpg', desc: 'Dual‑camera AI video bar for medium rooms' },
+    { id: 'meetingbar-a40', name: 'MeetingBar A40', category: 'Video Bars', thumb: 'images/yealink/meetingbar-a40.jpg', desc: 'Next‑gen dual 48MP AI video bar' },
+    { id: 'meetingbar-a50', name: 'MeetingBar A50', category: 'Video Bars', thumb: 'images/yealink/meetingbar-a50.jpg', desc: 'All‑in‑one bar for medium rooms' },
+    { id: 'meetingbar-a60', name: 'MeetingBar A60', category: 'Video Bars', thumb: 'images/yealink/meetingbar-a60.jpg', desc: 'High‑performance Android video bar for medium/large rooms' },
+
+    { id: 'meetingboard-65', name: 'MeetingBoard 65', category: 'MeetingBoard', thumb: 'images/yealink/meetingboard-65.jpg', desc: '65″ 4K collaborative whiteboard with built‑in cameras/mics' },
+    { id: 'meetingboard-86', name: 'MeetingBoard 86', category: 'MeetingBoard', thumb: 'images/yealink/meetingboard-86.jpg', desc: '86″ 4K collaborative whiteboard for large rooms' },
+
+    { id: 'mvc-s90', name: 'MVC S90', category: 'MTR Kits', thumb: 'images/yealink/mvc-s90.jpg', desc: '4th‑gen modular Microsoft Teams Rooms system' },
+    { id: 'mvc840', name: 'MVC840', category: 'MTR Kits', thumb: 'images/yealink/mvc840.jpg', desc: 'Teams Rooms kit for large rooms with UVC84 PTZ' },
+    { id: 'mvc640', name: 'MVC640', category: 'MTR Kits', thumb: 'images/yealink/mvc640.jpg', desc: 'Teams Rooms kit for medium rooms' },
+
+    // USB Cameras / Video Bars
+    { id: 'uvc90', name: 'UVC90', category: 'Cameras', thumb: 'images/yealink/uvc90.jpg', desc: '4K AI PTZ camera with auto‑framing' },
+    { id: 'uvc86', name: 'UVC86', category: 'Cameras', thumb: 'images/yealink/uvc86.jpg', desc: '4K dual‑eye PTZ camera for large rooms' },
+    { id: 'uvc84', name: 'UVC84', category: 'Cameras', thumb: 'images/yealink/uvc84.jpg', desc: '4K PTZ camera for medium/large rooms' },
+    { id: 'uvc50', name: 'UVC50', category: 'Cameras', thumb: 'images/yealink/uvc50.jpg', desc: 'Full HD PTZ camera for small/medium rooms' },
+    { id: 'uvc40', name: 'UVC40', category: 'Cameras', thumb: 'images/yealink/uvc40.jpg', desc: '4K AI USB video bar for small rooms' },
+    { id: 'uvc30', name: 'UVC30', category: 'Cameras', thumb: 'images/yealink/uvc30.jpg', desc: '4K ePTZ USB camera for huddle/personal' },
+    { id: 'uvc20', name: 'UVC20', category: 'Cameras', thumb: 'images/yealink/uvc20.jpg', desc: '1080p USB webcam with auto exposure' },
+
+    // Teams Phones (MP series)
+    { id: 'mp50', name: 'MP50', category: 'Phones', thumb: 'images/yealink/mp50.jpg', desc: 'USB Teams phone companion for PC softphone' },
+    { id: 'mp54', name: 'MP54', category: 'Phones', thumb: 'images/yealink/mp54.jpg', desc: 'Entry Teams phone with 4″ screen' },
+    { id: 'mp56', name: 'MP56', category: 'Phones', thumb: 'images/yealink/mp56.jpg', desc: 'Teams phone with 7″ touchscreen' },
+    { id: 'mp58', name: 'MP58', category: 'Phones', thumb: 'images/yealink/mp58.jpg', desc: 'Executive Teams phone with expansion support' },
+
+    // SIP IP Phones (T5/T4U/T3)
+    { id: 't58w', name: 'SIP‑T58W', category: 'Phones', thumb: 'images/yealink/t58w.jpg', desc: 'Android‑based smart media phone' },
+    { id: 't57w', name: 'SIP‑T57W', category: 'Phones', thumb: 'images/yealink/t57w.jpg', desc: 'Premium color IP phone with BT/Wi‑Fi' },
+    { id: 't54w', name: 'SIP‑T54W', category: 'Phones', thumb: 'images/yealink/t54w.jpg', desc: 'Mid‑range color IP phone with Wi‑Fi' },
+    { id: 't53w', name: 'SIP‑T53W', category: 'Phones', thumb: 'images/yealink/t53w.jpg', desc: 'Entry color IP phone with Wi‑Fi' },
+    { id: 't46u', name: 'SIP‑T46U', category: 'Phones', thumb: 'images/yealink/t46u.jpg', desc: 'Professional color IP phone (T4U)' },
+    { id: 't43u', name: 'SIP‑T43U', category: 'Phones', thumb: 'images/yealink/t43u.jpg', desc: 'Essential IP phone (T4U)' },
+    { id: 't31p', name: 'SIP‑T31P', category: 'Phones', thumb: 'images/yealink/t31p.jpg', desc: 'Entry‑level two‑line IP phone' },
+
+    // DECT Systems
+    { id: 'w79p', name: 'W79P', category: 'DECT', thumb: 'images/yealink/w79p.jpg', desc: 'Ruggedized DECT solution for harsh environments' },
+    { id: 'w78p', name: 'W78P', category: 'DECT', thumb: 'images/yealink/w78p.jpg', desc: 'Premium DECT base + handset' },
+    { id: 'w76p', name: 'W76P', category: 'DECT', thumb: 'images/yealink/w76p.jpg', desc: 'Performance DECT base + handset' },
+    { id: 'w73p', name: 'W73P', category: 'DECT', thumb: 'images/yealink/w73p.jpg', desc: 'Cost‑effective DECT system' },
+    { id: 'w70b', name: 'W70B', category: 'DECT', thumb: 'images/yealink/w70b.jpg', desc: 'High‑performance DECT base' },
+
+    // Headsets (BH/UH/YHS)
+    { id: 'bh76', name: 'BH76', category: 'Headsets', thumb: 'images/yealink/bh76.jpg', desc: 'Premium ANC Bluetooth headset with retractable boom' },
+    { id: 'bh72', name: 'BH72', category: 'Headsets', thumb: 'images/yealink/bh72.jpg', desc: 'Bluetooth headset with busy light' },
+    { id: 'bh71', name: 'BH71', category: 'Headsets', thumb: 'images/yealink/bh71.jpg', desc: 'Convertible Bluetooth headset' },
+    { id: 'uh38', name: 'UH38', category: 'Headsets', thumb: 'images/yealink/uh38.jpg', desc: 'Dual‑connect USB headset' },
+    { id: 'uh36', name: 'UH36', category: 'Headsets', thumb: 'images/yealink/uh36.jpg', desc: 'USB wired headset (Mono/Dual)' },
+    { id: 'yhs34', name: 'YHS34', category: 'Headsets', thumb: 'images/yealink/yhs34.jpg', desc: 'Wired headset for IP phones' },
+
+    // Speakerphones / Conference Phones
+    { id: 'cp965', name: 'CP965', category: 'Speakerphones', thumb: 'images/yealink/cp965.jpg', desc: 'Flagship Android conference phone for medium rooms' },
+    { id: 'cp935w', name: 'CP935W', category: 'Speakerphones', thumb: 'images/yealink/cp935w.jpg', desc: 'Wireless conference phone' },
+    { id: 'cp925', name: 'CP925', category: 'Speakerphones', thumb: 'images/yealink/cp925.jpg', desc: 'Wired conference phone' },
+    { id: 'cp960', name: 'CP960', category: 'Speakerphones', thumb: 'images/yealink/cp960.jpg', desc: 'Android conference phone with expansion' },
+    { id: 'cp900', name: 'CP900', category: 'Speakerphones', thumb: 'images/yealink/cp900.jpg', desc: 'Portable USB/Bluetooth speakerphone' },
+    { id: 'cp700', name: 'CP700', category: 'Speakerphones', thumb: 'images/yealink/cp700.jpg', desc: 'Portable USB/Bluetooth speakerphone' },
+
+    // Room Peripherals
+    { id: 'ctp18', name: 'CTP18', category: 'Room Peripherals', thumb: 'images/yealink/ctp18.jpg', desc: 'Collaboration touch panel for room control' },
+    { id: 'mtouch-ii', name: 'MTouch II', category: 'Room Peripherals', thumb: 'images/yealink/mtouch-ii.jpg', desc: 'Touch console for Teams Rooms' },
+    { id: 'mtouch-plus', name: 'MTouch Plus', category: 'Room Peripherals', thumb: 'images/yealink/mtouch-plus.jpg', desc: 'Next‑gen MTR touch console' },
+    { id: 'vcm36', name: 'VCM36', category: 'Room Peripherals', thumb: 'images/yealink/vcm36.jpg', desc: 'Ceiling microphone array' },
+    { id: 'vcm34', name: 'VCM34', category: 'Room Peripherals', thumb: 'images/yealink/vcm34.jpg', desc: 'Wired tabletop mic array' },
+    { id: 'cpw65', name: 'CPW65', category: 'Room Peripherals', thumb: 'images/yealink/cpw65.jpg', desc: 'DECT wireless expansion microphones' },
+    { id: 'mspeaker-ii', name: 'MSpeaker II', category: 'Room Peripherals', thumb: 'images/yealink/mspeaker-ii.jpg', desc: 'Stereo soundbar for conference rooms' },
+
+    // Accessories
+    { id: 'exp43', name: 'EXP43', category: 'Accessories', thumb: 'images/yealink/exp43.jpg', desc: 'Color screen expansion module' },
+    { id: 'bt41', name: 'BT41', category: 'Accessories', thumb: 'images/yealink/bt41.jpg', desc: 'Bluetooth USB dongle for IP phones' },
+    { id: 'wf50', name: 'WF50', category: 'Accessories', thumb: 'images/yealink/wf50.jpg', desc: 'Wi‑Fi USB dongle for IP phones' }
+  ];
+
+  const FEATURED_IDS = ['meetingbar-a60','uvc90','cp965','bh76','mp56'];
+
+  function productHref(p) {
+    return `product-${BRAND.slug}-${p.id}.html`;
+  }
+
+  function productCard(p) {
+    const alt = `${p.name} by Yealink`;
+    return `
+      <a class="product-card" href="${productHref(p)}" aria-label="${p.name}">
+        <div class="product-thumb">
+          <img src="${p.thumb}" alt="${alt}" loading="lazy" width="600" height="450">
+        </div>
+        <div class="product-body">
+          <h4>${p.name}</h4>
+          <p>${p.desc || ''}</p>
+          <div style="margin-top:8px;"><span class="pill">${p.category}</span></div>
+        </div>
+      </a>
+    `;
+  }
+
+  function mountSection(gridId, items) {
+    const el = document.getElementById(gridId);
+    if (el) el.innerHTML = items.map(productCard).join('');
+  }
+
+  function unique(arr) {
+    return [...new Set(arr)];
+  }
+
+  function buildTabs(categories) {
+    const wrap = document.getElementById('categoryTabs');
+    if (!wrap) return;
+    const cats = ['All', ...categories];
+    wrap.innerHTML = cats.map(c => `<button class="tab${c==='All'?' active':''}" data-cat="${c}">${c}</button>`).join('');
+    wrap.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tab');
+      if (!btn) return;
+      wrap.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      const list = cat === 'All' ? CATALOG : CATALOG.filter(p => p.category === cat);
+      mountSection('gridAll', list);
+      if (list.length === 0) document.getElementById('gridAll').innerHTML = '<p class="subtle">No products in this category.</p>';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Header brand info
+    const logo = document.getElementById('brandLogo');
+    if (logo) { logo.src = BRAND.logo; logo.alt = BRAND.name; }
+    const brandName = document.getElementById('brandName');
+    if (brandName) brandName.textContent = BRAND.name;
+    const brandDesc = document.getElementById('brandDesc');
+    if (brandDesc) brandDesc.textContent = BRAND.description;
+
+    // Sections populate
+    const featured = CATALOG.filter(p => FEATURED_IDS.includes(p.id));
+    const bars = CATALOG.filter(p => p.category === 'Video Bars');
+    const cams = CATALOG.filter(p => p.category === 'Cameras');
+    const phones = CATALOG.filter(p => p.category === 'Phones');
+    const dect = CATALOG.filter(p => p.category === 'DECT');
+    const headsets = CATALOG.filter(p => p.category === 'Headsets');
+    const speakerphones = CATALOG.filter(p => p.category === 'Speakerphones');
+    const roomPeripherals = CATALOG.filter(p => p.category === 'Room Peripherals');
+    const accessories = CATALOG.filter(p => p.category === 'Accessories');
+
+    mountSection('gridFeatured', featured);
+    mountSection('gridBars', bars);
+    mountSection('gridCameras', cams);
+    mountSection('gridPhones', phones);
+    mountSection('gridDect', dect);
+    mountSection('gridHeadsets', headsets);
+    mountSection('gridSpeakerphones', speakerphones);
+    mountSection('gridRoomPeripherals', roomPeripherals);
+    mountSection('gridAccessories', accessories);
+    mountSection('gridAll', CATALOG);
+
+    // Tabs from categories for All Products
+    const categories = unique(CATALOG.map(p => p.category));
+    buildTabs(categories);
+  });
+</script>
+</body>
+</html>
+
+

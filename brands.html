@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brands • AlKanz • IT</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script type="module" src="components/header-component.js"></script>
+  <script type="module" src="components/footer-component.js"></script>
+  <script type="module" src="components/brands-strip-component.js"></script>
+</head>
+<body>
+
+<header-component></header-component>
+
+<brands-strip-component></brands-strip-component>
+
+<footer-component></footer-component>
+
+<script>
+  // Mobile nav toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('header nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', () => nav.classList.toggle('open'));
+    }
+    // Mobile: tap "Brands" to open submenu
+    const dropdownLi = document.querySelector('li.dropdown');
+    const dropdownToggle = dropdownLi ? dropdownLi.querySelector(':scope > a') : null;
+    if (dropdownLi && dropdownToggle) {
+      dropdownToggle.addEventListener('click', (e) => {
+        if (window.matchMedia('(max-width: 720px)').matches) {
+          e.preventDefault();
+          dropdownLi.classList.toggle('open');
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Room Configurator</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* --- Custom Configurator Styles --- */
+    .config-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: var(--card);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+    }
+    .config-container h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label { display: block; margin-bottom: 0.5rem; }
+    select, input {
+      width: 100%; padding: 0.7rem;
+      border-radius: var(--radius); border: 1px solid #4b5563;
+      background: #1f2937; color: var(--text);
+    }
+    button {
+      all: unset;
+      display: inline-block;
+      background: var(--brand);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      margin-top: 1rem;
+      box-shadow: var(--shadow);
+      transition: transform .2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .summary {
+      margin-top: 2rem;
+      background: var(--card);
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      display: none;
+    }
+    .visual-preview {
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .visual-preview img {
+      max-width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+  </style>
+</head>
+<body>
+  <header><!-- Shared header from your site --></header>
+
+  <section class="section">
+    <div class="container config-container">
+      <h2>Build Your Room</h2>
+      <form id="roomForm">
+        <div class="form-group">
+          <label for="roomType">Room Type</label>
+          <select id="roomType" required>
+            <option value="">— Select —</option>
+            <option value="Huddle">Huddle (2–4 ppl)</option>
+            <option value="Medium">Medium (5–10 ppl)</option>
+            <option value="Large">Large (10+ ppl)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <select id="brand" required>
+            <option value="">— Select —</option>
+            <option>Yealink</option>
+            <option>Logitech</option>
+            <option>Cisco</option>
+            <option>Poly</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="display">Display</label>
+          <select id="display" required>
+            <option value="">— Select —</option>
+            <option>Single 55″</option>
+            <option>Dual 55″</option>
+            <option>Single 75″</option>
+            <option>LED Wall</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="camera">Camera Bar</label>
+          <select id="camera" required>
+            <option value="">— Select —</option>
+            <option>USB Bar</option>
+            <option>AI 4K Bar</option>
+            <option>PTZ Pro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="audio">Mic & Speaker</label>
+          <select id="audio" required>
+            <option value="">— Select —</option>
+            <option>Table Mic + Speaker</option>
+            <option>Ceiling + Wall</option>
+            <option>Wireless + Soundbar</option>
+          </select>
+        </div>
+
+        <button type="submit">Show Configuration</button>
+      </form>
+
+      <div class="summary" id="summary">
+        <h3>Your Configuration</h3>
+        <p><strong>Room Type:</strong> <span id="sumRoom"></span></p>
+        <p><strong>Brand:</strong> <span id="sumBrand"></span></p>
+        <p><strong>Display:</strong> <span id="sumDisplay"></span></p>
+        <p><strong>Camera:</strong> <span id="sumCamera"></span></p>
+        <p><strong>Audio:</strong> <span id="sumAudio"></span></p>
+      </div>
+
+      <div class="visual-preview" id="visualPreview">
+        <!-- Placeholder image that changes based on room type -->
+        <img id="roomImage" src="images/medium-room-placeholder.jpg" alt="Room Preview">
+      </div>
+    </div>
+  </section>
+
+  <footer><!-- Shared footer --></footer>
+
+  <script>
+    document.getElementById('roomForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const types = ['Huddle','Medium','Large'];
+      const type = document.getElementById('roomType').value;
+
+      document.getElementById('summary').style.display = 'block';
+      document.getElementById('sumRoom').textContent = type;
+      document.getElementById('sumBrand').textContent = document.getElementById('brand').value;
+      document.getElementById('sumDisplay').textContent = document.getElementById('display').value;
+      document.getElementById('sumCamera').textContent = document.getElementById('camera').value;
+      document.getElementById('sumAudio').textContent = document.getElementById('audio').value;
+
+      // Update image based on room type selection
+      const img = document.getElementById('roomImage');
+      img.src = `images/${type.toLowerCase()}-room.jpg`;
+      img.alt = `${type} Room Preview`;
+    });
+  </script>
+</body>
+</html>
+

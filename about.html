@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About • Al Kanz • IT</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="components/header-component.js"></script>
+  <script type="module" src="components/footer-component.js"></script>
+</head>
+<body>
+
+<header-component></header-component>
+
+<section class="section">
+  <div class="container grid" style="grid-template-columns:1.2fr 1fr">
+    <div class="card pad">
+      <h2>About Us</h2>
+      <p class="muted">We are an IT & AV integration company delivering reliable meeting experiences. From design to commissioning, our certified team handles everything: surveys, drawings, supply, installation, programming, and training.</p>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:16px">
+        <div class="card pad"><strong>5</strong><br><small class="muted">Rooms Delivered</small></div>
+        <div class="card pad"><strong>1 yrs</strong><br><small class="muted">Industry Experience</small></div>
+        <div class="card pad"><strong>10x6</strong><br><small class="muted">Support</small></div>
+      </div>
+    </div>
+    <div class="card" style="overflow:hidden">
+      <img src="images/about/Team.png" alt="Team at work" style="width:100%;height:auto;display:block">
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="section mission-vision">
+  <div class="container">
+    <h2 class="section-title text-center">Our Mission & Vision</h2>
+    <div class="grid" style="grid-template-columns:1fr 1fr;gap:32px">
+      <div class="card pad mission-card">
+        <div class="icon-wrapper">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2L3 7V12C3 17.55 6.84 22.74 12 23C17.16 22.74 21 17.55 21 12V7L12 2Z" fill="var(--primary)" opacity="0.9"/>
+            <path d="M12 22C7.59 22 4 17.52 4 12V7L12 2L20 7V12C20 17.52 16.41 22 12 22Z" stroke="var(--primary)" stroke-width="2"/>
+            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="var(--secondary)"/>
+            <path d="M12 6V8" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 16V18" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 10L8 11" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 15L17 16" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 14L8 13" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16 11L17 10" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Our Mission</h3>
+        <p>To transform business communication through innovative IT & AV solutions that are reliable, intuitive, and seamlessly integrated into our clients' workflows.</p>
+      </div>
+      <div class="card pad vision-card">
+        <div class="icon-wrapper">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="var(--secondary)"/>
+          </svg>
+        </div>
+        <h3>Our Vision</h3>
+        <p>To become the leading provider of integrated meeting experiences, setting new standards for reliability, user experience, and customer satisfaction in the IT & AV industry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid features">
+    <div class="card pad feature">
+      <h3>Methodology</h3>
+      <p>Consult → Design → PoC → Deploy → Train → Support. Clear documentation & SLAs.</p>
+    </div>
+    <div class="card pad feature">
+      <h3>Compliance</h3>
+      <p>Electrical safety, fire norms, structured cabling standards and IT policies.</p>
+    </div>
+    <div class="card pad feature">
+      <h3>Partnerships</h3>
+      <p>Tier‑1 OEM tie‑ups ensure genuine parts, warranties and escalations.</p>
+    </div>
+  </div>
+</section>
+
+<footer-component></footer-component>
+
+<script src="js/main.js"></script>
+<script>
+  // Animation for mission and vision cards
+  document.addEventListener('DOMContentLoaded', function() {
+    const missionCard = document.querySelector('.mission-card');
+    const visionCard = document.querySelector('.vision-card');
+    
+    // Create intersection observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.2 });
+    
+    // Set initial state for animation
+    if (missionCard) {
+      missionCard.style.opacity = '0';
+      missionCard.style.transform = 'translateY(20px)';
+      missionCard.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(missionCard);
+    }
+    
+    if (visionCard) {
+      visionCard.style.opacity = '0';
+      visionCard.style.transform = 'translateY(20px)';
+      visionCard.style.transition = 'opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s';
+      observer.observe(visionCard);
+    }
+  });
+</script>
+</body>
+</html>

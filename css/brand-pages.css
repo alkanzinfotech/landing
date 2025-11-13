@@ -1,0 +1,103 @@
+/* ========== Brand Pages CSS ========== */
+.brand-hero {
+  padding: 80px 0;
+  text-align: center;
+  background: var(--surface);
+}
+
+.brand-logo-container {
+  max-width: 300px;
+  height: 120px;
+  margin: 0 auto 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--elev-2-key), var(--elev-2-amb);
+  border: 1px solid var(--stroke);
+}
+
+.brand-logo-container img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+}
+
+.coming-soon {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.coming-soon-icon {
+  font-size: 80px;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+
+.progress-container {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  background: var(--stroke);
+  border-radius: 50px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--brand);
+  width: 65%;
+  border-radius: 50px;
+  animation: progress 2s ease-in-out;
+}
+
+@keyframes progress {
+  0% { width: 0%; }
+  100% { width: 65%; }
+}
+
+.status-text {
+  font-size: 16px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.brand-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.brand-feature-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid var(--stroke);
+}
+
+.brand-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--elev-3-key), var(--elev-3-amb);
+}
+
+.brand-feature-icon {
+  font-size: 40px;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+.brand-cta {
+  padding: 80px 0;
+  text-align: center;
+  background: var(--muted);
+  color: #ffffff;
+}
+
+.brand-cta .btn {
+  background: white;
+  color: var(--secondary);
+}

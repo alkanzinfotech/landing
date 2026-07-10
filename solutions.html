@@ -12,78 +12,122 @@
 
 <header-component></header-component>
 
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Solutions</span></div>
+    <span class="eyebrow">What We Build</span>
+    <h1>Our Solutions</h1>
+    <p>Comprehensive audio-visual and security solutions tailored to your specific needs and environment.</p>
+  </div>
+</section>
+
 <main>
   <!-- Solutions Grid -->
   <section class="section">
-    <div class="container grid solutions-grid">
-      <div class="card pad solution">
-        <img class="solution-img" src="images/solutions/small meetingroom.webp" alt="Meeting Rooms">
-        <span class="badge">Meeting Rooms</span>
-        <h3 class="title">Small, Medium & Boardrooms</h3>
-        <p>All‑in‑one bars, PTZ cameras, DSP, control panels, BYOD/Room systems, cable management and display mounting.</p>
-      </div>
+    <div class="container">
+      <div class="grid solutions-grid stagger fade-in">
+        <div class="card solution">
+          <div class="solution-img-wrap">
+            <img class="solution-img" src="images/solutions/small meetingroom.webp" alt="Meeting Rooms">
+          </div>
+          <div class="solution-body">
+            <span class="badge">Meeting Rooms</span>
+            <h3>Small, Medium & Boardrooms</h3>
+            <p>All‑in‑one bars, PTZ cameras, DSP, control panels, BYOD/Room systems, cable management and display mounting.</p>
+          </div>
+        </div>
 
-      <div class="card pad solution">
-        <img class="solution-img" src="images/solutions/Auditoriums.jpg" alt="Auditoriums">
-        <span class="badge">Auditoriums</span>
-        <h3 class="title">Large Venues</h3>
-        <p>Line‑array speakers, wireless mics, stage lighting, projection/LED walls and multi‑camera switching.</p>
-      </div>
+        <div class="card solution">
+          <div class="solution-img-wrap">
+            <img class="solution-img" src="images/solutions/Auditoriums.jpg" alt="Auditoriums">
+          </div>
+          <div class="solution-body">
+            <span class="badge">Auditoriums</span>
+            <h3>Large Venues</h3>
+            <p>Line‑array speakers, wireless mics, stage lighting, projection/LED walls and multi‑camera switching.</p>
+          </div>
+        </div>
 
-      <div class="card pad solution">
-        <img class="solution-img" src="images/solutions/training room.jpg" alt="Training Rooms">
-        <span class="badge">Training Rooms</span>
-        <h3 class="title">Interactive Learning</h3>
-        <p>Touch displays, tracking cameras, recording, hybrid teaching tools and acoustic treatment.</p>
-      </div>
+        <div class="card solution">
+          <div class="solution-img-wrap">
+            <img class="solution-img" src="images/solutions/training room.jpg" alt="Training Rooms">
+          </div>
+          <div class="solution-body">
+            <span class="badge">Training Rooms</span>
+            <h3>Interactive Learning</h3>
+            <p>Touch displays, tracking cameras, recording, hybrid teaching tools and acoustic treatment.</p>
+          </div>
+        </div>
 
-      <div class="card pad solution">
-        <img class="solution-img" src="images/solutions/huddle room.webp" alt="Huddle Spaces">
-        <span class="badge">Huddle Spaces</span>
-        <h3 class="title">Quick Collaboration</h3>
-        <p>USB bars, table mics, compact displays, wireless sharing and occupancy sensors.</p>
-      </div>
+        <div class="card solution">
+          <div class="solution-img-wrap">
+            <img class="solution-img" src="images/solutions/huddle room.webp" alt="Huddle Spaces">
+          </div>
+          <div class="solution-body">
+            <span class="badge">Huddle Spaces</span>
+            <h3>Quick Collaboration</h3>
+            <p>USB bars, table mics, compact displays, wireless sharing and occupancy sensors.</p>
+          </div>
+        </div>
 
-      <div class="card pad solution">
-        <img class="solution-img" src="images/solutions/cctv.jpg" alt="CCTV & Access">
-        <span class="badge">CCTV & Access</span>
-        <h3 class="title">Security</h3>
-        <p>IP cameras, VMS, NVR, analytics, visitor & access control, secure storage and monitoring.</p>
-      </div>
+        <div class="card solution">
+          <div class="solution-img-wrap">
+            <img class="solution-img" src="images/solutions/cctv.jpg" alt="CCTV & Access">
+          </div>
+          <div class="solution-body">
+            <span class="badge">CCTV & Access</span>
+            <h3>Security</h3>
+            <p>IP cameras, VMS, NVR, analytics, visitor & access control, secure storage and monitoring.</p>
+          </div>
+        </div>
 
-      <div class="card pad solution">
-        <img class="solution-img" src="images/solutions/images.jpg" alt="Network & Control">
-        <span class="badge">Network & Control</span>
-        <h3 class="title">Infrastructure</h3>
-        <p>Structured cabling, PoE, AV‑over‑IP, control processors, touch panels and UPS.</p>
+        <div class="card solution">
+          <div class="solution-img-wrap">
+            <img class="solution-img" src="images/solutions/images.jpg" alt="Network & Control">
+          </div>
+          <div class="solution-body">
+            <span class="badge">Network & Control</span>
+            <h3>Infrastructure</h3>
+            <p>Structured cabling, PoE, AV‑over‑IP, control processors, touch panels and UPS.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Before / After Overlap Slider -->
+  <!-- Room Designs / Before-After Showcase -->
+  <section class="section surface" style="padding-bottom:0">
+    <div class="container text-center">
+      <h2 class="italic">Room Designs</h2>
+      <p class="muted" style="max-width:640px;margin:0 auto 2.25rem">Explore the transformation we deliver — drag the handle to compare a room before and after our team redesigns it.</p>
+      <a class="btn dark no-arrow" href="contact.html">View More</a>
+    </div>
+  </section>
+
+  <div class="full-bleed overlap-compare fade-in">
+    <div class="ba-wrapper tall">
+      <img class="ba-img ba-before" src="images/Solutions/Before.webp" alt="Before">
+      <img class="ba-img ba-after" src="images/Solutions/After.webp" alt="After">
+      <input
+        class="ba-range"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Before After Slider"
+      >
+      <div class="ba-handle" aria-hidden="true"></div>
+    </div>
+  </div>
+
   <section class="section">
     <div class="container">
-      <h2 style="margin:0 0 18px">Before / After</h2>
-
-      <div class="compare card overlap-compare">
-        <div class="ba-wrapper">
-          <img class="ba-img ba-before" src="images/Solutions/Before.webp" alt="Before">
-          <img class="ba-img ba-after" src="images/Solutions/After.webp" alt="After">
-          <div class="ba-handle" aria-hidden="true"></div>
-        </div>
-
-        <input
-          class="ba-range"
-          type="range"
-          min="0"
-          max="100"
-          value="50"
-          aria-label="Before After Slider"
-        >
-
-        <div class="ba-labels">
-          <div class="label">Before</div>
-          <div class="label right">After</div>
+      <div class="cta-banner fade-in">
+        <span class="eyebrow">Not Sure Where to Start?</span>
+        <h2>Get a free room assessment</h2>
+        <p>Share your room dimensions and use-case — we'll recommend the right solution and a clear quote.</p>
+        <div class="cta-actions">
+          <a class="btn secondary" href="contact.html">Request an Assessment</a>
         </div>
       </div>
     </div>
@@ -95,5 +139,3 @@
 <script src="js/main.js"></script>
 </body>
 </html>
-
-

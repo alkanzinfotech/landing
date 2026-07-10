@@ -12,59 +12,106 @@
 
 <header-component></header-component>
 
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+    <span class="eyebrow">Let's Talk</span>
+    <h1>Contact Us</h1>
+    <p>Get in touch with our team to discuss your audio-visual and security needs.</p>
+  </div>
+</section>
+
 <section class="section">
-  <div class="container grid" style="grid-template-columns:1fr 1.1fr">
-    <div class="card pad">
-      <h2>Contact Us</h2>
-      <p class="muted">Share your requirements and we’ll schedule a free site visit.</p>
-      <form class="contact-form" novalidate>
-        <div class="row">
-          <div><label>Name<br><input type="text" name="name" required></label></div>
-          <div><label>Phone<br><input type="tel" name="phone" required></label></div>
-        </div>
-        <div class="row">
-          <div><label>Email<br><input type="email" name="email" required></label></div>
-          <div><label>City<br><input type="text" name="city"></label></div>
-        </div>
-        <label>Message<br><textarea name="message" required></textarea></label>
-        <button class="btn" type="submit">Send Message</button>
-      </form>
+  <div class="container">
+    <div class="grid contact-info-grid stagger fade-in">
+      <div class="card contact-info-card">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h4>Call Us</h4>
+        <p><a href="tel:+916376898835">+91 63768 98835</a></p>
+      </div>
+      <div class="card contact-info-card">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></div>
+        <h4>Email Us</h4>
+        <p><a href="mailto:alkanzinfotech@gmail.com">alkanzinfotech@gmail.com</a></p>
+      </div>
+      <div class="card contact-info-card">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <h4>Visit Us</h4>
+        <p>Andheri (E), Mumbai 400059</p>
+      </div>
+      <div class="card contact-info-card">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h4>Working Hours</h4>
+        <p>Mon–Sat, 10:00–19:00</p>
+      </div>
     </div>
 
-    <div class="card" style="overflow:hidden">
-      <div class="map-wrap" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
-        <!-- Option A: No API key, address + output=embed -->
-        <iframe
-          title="AlKanz InfoTech Location"
-          src="https://www.google.com/maps?q=UNT%20NO%20-%202%2C%204TH%20FLOOR%2C%20A%20WING%2C%20TIME%20SQUARE%20BUILDING%2C%20MAROL%2C%20NILKANTH%20PARK%2C%20ANDHERI%20(E)%2C%20MUMBAI%2C%20400059&z=16&output=embed"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
+    <div class="grid" style="grid-template-columns:1fr 1.1fr">
+      <div class="card pad fade-in">
+        <span class="eyebrow">Send a Message</span>
+        <h2>Get In Touch</h2>
+        <p class="muted">Share your requirements and we'll schedule a free site visit.</p>
+        <form class="contact-form" novalidate data-emailjs-service="service_teli5hn" data-emailjs-template="template_6b6a54x" data-emailjs-public="w2RNvrnXNfAwhUOPU">
+          <div class="row">
+            <div><label>Name<br><input type="text" name="name" required></label></div>
+            <div><label>Phone<br><input type="tel" name="phone" required></label></div>
+          </div>
+          <div class="row">
+            <div><label>Email<br><input type="email" name="email" required></label></div>
+            <div><label>City<br><input type="text" name="city"></label></div>
+          </div>
+          <label>Message<br><textarea name="message" required placeholder="Tell us about your project requirements..."></textarea></label>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+      </div>
 
-        <!-- Option B: Official Maps Embed API (uncomment, add API key, and optionally Place name)
-        <iframe
-          title="AlKanz InfoTech Location"
-          src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=UNT+NO+-+2,+4TH+FLOOR,+A+WING,+TIME+SQUARE+BUILDING,+MAROL,+NILKANTH+PARK,+ANDHERI+(E),+MUMBAI,+400059&zoom=16"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          allowfullscreen>
-        </iframe>
-        -->
+      <div class="card fade-in" style="overflow:hidden; display: flex; flex-direction: column;">
+        <div class="map-wrap">
+          <iframe
+            title="AlKanz InfoTech Location"
+            src="https://www.google.com/maps?q=UNT%20NO%20-%202%2C%204TH%20FLOOR%2C%20A%20WING%2C%20TIME%20SQUARE%20BUILDING%2C%20MAROL%2C%20NILKANTH%20PARK%2C%20ANDHERI%20(E)%2C%20MUMBAI%2C%20400059&z=16&output=embed"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div style="padding:24px;">
+          <h3>Visit Our Office</h3>
+          <p><strong>Address:</strong><br>
+          UNT NO - 2, 4TH FLOOR, A WING, TIME SQUARE BUILDING,<br>
+          MAROL, NILKANTH PARK, ANDHERI (E), MUMBAI, 400059</p>
+          <p><strong>Phone:</strong> +91 63768 98835</p>
+          <p><strong>Email:</strong> alkanzinfotech@gmail.com</p>
+        </div>
       </div>
-      <div style="padding:8px 0;text-align:center;">
-      <a href="https://www.google.com/maps/search/?api=1&query=UNT+NO+-+2,+4TH+FLOOR,+A+WING,+TIME+SQUARE+BUILDING,+MAROL,+NILKANTH+PARK,+ANDHERI+(E),+MUMBAI,+400059" target="_blank" rel="noopener noreferrer"></a>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section surface">
+  <div class="container grid features stagger fade-in">
+    <div class="card pad feature">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>Quick Response</h3>
+      <p>We respond to all inquiries within 24 hours to discuss your requirements.</p>
+    </div>
+    <div class="card pad feature">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <h3>Free Consultation</h3>
+      <p>Get a complimentary site assessment and solution recommendation.</p>
+    </div>
+    <div class="card pad feature">
+      <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></div>
+      <h3>Pan-India Service</h3>
+      <p>We provide our professional services across all major cities in India.</p>
     </div>
   </div>
 </section>
 
 <footer-component></footer-component>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
-
-

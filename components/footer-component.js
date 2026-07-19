@@ -12,7 +12,7 @@ class FooterComponent extends HTMLElement {
           <div class="footer-top">
             <div>
               <a href="index.html" class="logo">
-                <span class="logo-mark">AK</span>
+                <span class="logo-mark"><img src="images/logo.png" alt="AlKanz InfoTech logo"></span>
                 AlKanz InfoTech
               </a>
               <p class="foot-desc">Professional conference room and security deployments — camera bars, displays, speakers, microphones, control systems & CCTV, designed and installed end-to-end.</p>

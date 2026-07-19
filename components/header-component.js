@@ -20,7 +20,7 @@ class HeaderComponent extends HTMLElement {
       <header>
         <div class="container nav">
           <a href="index.html" class="logo">
-            <span class="logo-mark">AK</span>
+            <span class="logo-mark"><img src="images/logo.png" alt="AlKanz InfoTech logo"></span>
             AlKanz InfoTech
           </a>
           <button class="hamburger" aria-label="Menu" aria-expanded="false">

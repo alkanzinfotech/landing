@@ -138,8 +138,15 @@ class BackToTop {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    this.footer = document.querySelector('footer');
+
     window.addEventListener('scroll', () => {
       this.button.classList.toggle('show', window.scrollY > 500);
+
+      if (this.footer) {
+        const overlap = window.innerHeight - this.footer.getBoundingClientRect().top;
+        this.button.style.bottom = overlap > 0 ? `${22 + overlap}px` : '22px';
+      }
     }, { passive: true });
   }
 }

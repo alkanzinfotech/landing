@@ -6,10 +6,10 @@
       title: 'What <b>room size</b> are you setting up?',
       type: 'image',
       options: [
-        { value: 'huddle', label: 'Huddle Room', sub: '(2–4 pax)', img: 'images/solutions/huddle room.webp' },
-        { value: 'small', label: 'Small Meeting Room', sub: '(4–6 pax)', img: 'images/solutions/small meetingroom.webp' },
+        { value: 'huddle', label: 'Huddle Room', sub: '(2–4 pax)', img: 'images/Solutions/huddle room.webp' },
+        { value: 'small', label: 'Small Meeting Room', sub: '(4–6 pax)', img: 'images/Solutions/small meetingroom.webp' },
         { value: 'medium', label: 'Boardroom', sub: '(6–12 pax)', img: 'images/Solutions/Meeting Room.webp' },
-        { value: 'large', label: 'Auditorium', sub: '(12+ pax)', img: 'images/solutions/Auditoriums.jpg' },
+        { value: 'large', label: 'Auditorium', sub: '(12+ pax)', img: 'images/Solutions/Auditoriums.jpg' },
       ],
     },
     {

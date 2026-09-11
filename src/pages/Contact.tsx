@@ -1,11 +1,12 @@
 import { useRef, useState, type FormEvent } from 'react'
-import { CheckCircle2, Clock, Loader2, Mail, MapPin, Phone, Send } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import { Clock, Loader2, Mail, MapPin, Phone, Send } from 'lucide-react'
 import { useMeta } from '../hooks/useMeta'
 import { PageHero } from '../components/layout/PageHero'
 import { Reveal, StaggerGroup, StaggerItem } from '../components/ui/Reveal'
 import { IconTile } from '../components/ui/IconTile'
 import { CONTACT } from '../data/content'
-import { sendContactForm } from '../lib/emailjs'
+import { submitWeb3Form } from '../lib/web3forms'
 
 const INFO_CARDS = [
   { icon: Phone, title: 'Call Us', value: CONTACT.phone, href: CONTACT.phoneHref },
@@ -14,7 +15,7 @@ const INFO_CARDS = [
   { icon: Clock, title: 'Working Hours', value: CONTACT.hours },
 ]
 
-type Status = 'idle' | 'sending' | 'success' | 'error'
+type Status = 'idle' | 'sending' | 'error'
 
 export function Contact() {
   useMeta(
@@ -24,15 +25,23 @@ export function Contact() {
 
   const formRef = useRef<HTMLFormElement>(null)
   const [status, setStatus] = useState<Status>('idle')
+  const navigate = useNavigate()
 
-  const onSubmit = async (e: FormEvent) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!formRef.current) return
+    const form = formRef.current
+    if (!form) return
     setStatus('sending')
+
+    const name = String(new FormData(form).get('name') ?? '').trim() || 'Website Visitor'
+
     try {
-      await sendContactForm(formRef.current)
-      setStatus('success')
-      formRef.current.reset()
+      await submitWeb3Form(form, {
+        subject: `New Website Enquiry from ${name} — AlKanz Infotech`,
+        fromName: name,
+      })
+      form.reset()
+      navigate('/thank-you')
     } catch {
       setStatus('error')
     }
@@ -80,6 +89,14 @@ export function Contact() {
                 </p>
 
                 <form ref={formRef} onSubmit={onSubmit} className="mt-8 flex flex-col gap-5">
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    className="hidden"
+                    aria-hidden="true"
+                  />
                   <div className="grid gap-5 sm:grid-cols-2">
                     <Field label="Name" name="name" required />
                     <Field label="Phone" name="phone" type="tel" required />
@@ -115,11 +132,6 @@ export function Contact() {
                     )}
                   </button>
 
-                  {status === 'success' && (
-                    <p className="flex items-center gap-2 rounded-xl bg-signal-50 px-4 py-3 text-sm font-medium text-signal-700">
-                      <CheckCircle2 size={16} /> Thanks — we'll be in touch within 24 hours.
-                    </p>
-                  )}
                   {status === 'error' && (
                     <p className="rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
                       Something went wrong. Please call us directly at {CONTACT.phone}.

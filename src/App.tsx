@@ -16,6 +16,7 @@ const Solutions = lazy(() => import('./pages/Solutions').then((m) => ({ default:
 const Brands = lazy(() => import('./pages/Brands').then((m) => ({ default: m.Brands })))
 const BrandDetail = lazy(() => import('./pages/BrandDetail').then((m) => ({ default: m.BrandDetail })))
 const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })))
+const ThankYou = lazy(() => import('./pages/ThankYou').then((m) => ({ default: m.ThankYou })))
 const Configurator = lazy(() => import('./pages/Configurator').then((m) => ({ default: m.Configurator })))
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
@@ -47,6 +48,7 @@ function App() {
               <Route path="/brands" element={<Brands />} />
               <Route path="/brands/:slug" element={<BrandDetail />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/thank-you" element={<ThankYou />} />
               <Route path="/configurator" element={<Configurator />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

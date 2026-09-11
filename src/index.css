@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink-900 font-body antialiased;
+    font-feature-settings: 'ss01' on, 'cv01' on;
+  }
+
+  h1, h2, h3, h4, h5 {
+    @apply font-display tracking-tight text-ink-900;
+  }
+
+  ::selection {
+    @apply bg-gold-400/30 text-ink-900;
+  }
+
+  :focus-visible {
+    outline: 2px solid theme('colors.gold.500');
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.navy.200');
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.navy.300');
+  }
+
+  @media (pointer: fine) {
+    a, button, input, textarea, select {
+      cursor: none;
+    }
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-10;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[0.7rem] font-medium uppercase tracking-[0.2em] text-gold-600;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-[6px] w-[6px] rounded-full bg-gold-500;
+  }
+
+  .eyebrow-light {
+    @apply text-signal-300;
+  }
+  .eyebrow-light::before {
+    @apply bg-signal-300;
+  }
+
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full px-6 py-3.5 text-sm font-semibold transition-transform duration-300 ease-out will-change-transform;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy-800 text-white shadow-card hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-gold {
+    @apply btn bg-gradient-to-br from-gold-400 to-gold-600 text-ink-900 shadow-glow hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply btn border border-ink-900/10 bg-transparent text-ink-900 hover:-translate-y-0.5 hover:border-ink-900/20 active:translate-y-0;
+  }
+
+  .btn-ghost-light {
+    @apply btn border border-white/25 bg-white/5 text-white backdrop-blur hover:-translate-y-0.5 hover:border-white/40 active:translate-y-0;
+  }
+
+  .card-surface {
+    @apply rounded-3xl border border-ink-900/[0.06] bg-white shadow-card;
+  }
+
+  .noise-overlay {
+    @apply pointer-events-none absolute inset-0 bg-noise opacity-[0.035] mix-blend-overlay;
+  }
+
+  .link-underline {
+    @apply relative;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.3s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

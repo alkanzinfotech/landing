@@ -13,7 +13,7 @@ import { SOLUTIONS } from '../data/content'
 export function Solutions() {
   useMeta(
     'Solutions',
-    'Comprehensive audio-visual and security solutions tailored to your space — meeting rooms, auditoriums, training rooms, huddle spaces, CCTV and network infrastructure.',
+    'Audio-visual and security solutions tailored to your space — meeting rooms, auditoriums, training rooms, huddle spaces, CCTV and network infrastructure.',
   )
 
   return (

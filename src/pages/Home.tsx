@@ -40,7 +40,7 @@ const sectorIcons = {
 
 export function Home() {
   useMeta(
-    'Audio-Visual, Conferencing & Security Integrators',
+    'AV, Conferencing & Security Integrators',
     'AlKanz Infotech designs, supplies and installs professional audio-visual, video conferencing and CCTV security systems across India.',
   )
 

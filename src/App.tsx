@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { Header } from './components/layout/Header'
@@ -9,13 +10,22 @@ import { PageShell } from './components/layout/PageShell'
 import { CustomCursor } from './components/layout/CustomCursor'
 
 import { Home } from './pages/Home'
-import { About } from './pages/About'
-import { Solutions } from './pages/Solutions'
-import { Brands } from './pages/Brands'
-import { BrandDetail } from './pages/BrandDetail'
-import { Contact } from './pages/Contact'
-import { Configurator } from './pages/Configurator'
-import { NotFound } from './pages/NotFound'
+
+const About = lazy(() => import('./pages/About').then((m) => ({ default: m.About })))
+const Solutions = lazy(() => import('./pages/Solutions').then((m) => ({ default: m.Solutions })))
+const Brands = lazy(() => import('./pages/Brands').then((m) => ({ default: m.Brands })))
+const BrandDetail = lazy(() => import('./pages/BrandDetail').then((m) => ({ default: m.BrandDetail })))
+const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })))
+const Configurator = lazy(() => import('./pages/Configurator').then((m) => ({ default: m.Configurator })))
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
+
+function RouteFallback() {
+  return (
+    <div className="grid min-h-[60vh] place-items-center">
+      <span className="h-8 w-8 animate-spin rounded-full border-2 border-navy-200 border-t-navy-800" />
+    </div>
+  )
+}
 
 function App() {
   const location = useLocation()
@@ -29,16 +39,18 @@ function App() {
 
       <AnimatePresence mode="wait">
         <PageShell key={location.pathname}>
-          <Routes location={location}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/brands" element={<Brands />} />
-            <Route path="/brands/:slug" element={<BrandDetail />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/configurator" element={<Configurator />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<RouteFallback />}>
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/brands" element={<Brands />} />
+              <Route path="/brands/:slug" element={<BrandDetail />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/configurator" element={<Configurator />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </PageShell>
       </AnimatePresence>
 

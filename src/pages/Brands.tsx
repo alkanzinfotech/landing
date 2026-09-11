@@ -43,7 +43,7 @@ const WHY = [
 export function Brands() {
   useMeta(
     'Brands',
-    'We partner with industry-leading brands — Yealink, Poly, Jabra, Logitech, Samsung, LG, Sony, Hikvision and more — to deliver genuine AV and security hardware.',
+    'We partner with industry-leading brands — Yealink, Poly, Jabra, Samsung, LG, Sony, Hikvision and more — to deliver genuine AV and security hardware.',
   )
 
   const [active, setActive] = useState<(typeof CATEGORIES)[number]>('all')

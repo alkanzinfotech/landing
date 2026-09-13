@@ -15,9 +15,14 @@ export function Footer() {
       <div className="container-app relative">
         <div className="grid gap-12 border-b border-white/10 pb-14 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           <div>
-            <Link to="/" className="flex items-center gap-3">
-              <img src="/images/logo-mark.png" alt="AlKanz Infotech" className="h-10 w-10 object-contain" />
-              <span className="font-display text-lg font-semibold">AlKanz Infotech</span>
+            <Link to="/" className="flex items-center gap-2.5" aria-label="AlKanz Infotech home">
+              <img
+                src="/images/logo-mark.webp"
+                alt=""
+                className="h-16 w-16 shrink-0 object-contain drop-shadow-[0_3px_12px_rgba(22,207,215,0.25)]"
+                loading="lazy"
+              />
+              <span className="font-display text-xl font-semibold tracking-tight">AlKanz Infotech</span>
             </Link>
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/55">
               Professional conference-room and security deployments — camera bars, displays,

@@ -56,7 +56,7 @@ export function About() {
 
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[
-                { value: '5', label: 'Rooms Delivered' },
+                { value: '20+', label: 'Rooms Delivered' },
                 { value: '1 yr', label: 'Industry Experience' },
                 { value: '10×6', label: 'Support' },
               ].map((s) => (

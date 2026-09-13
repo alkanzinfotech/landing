@@ -22,7 +22,7 @@ export const WEB3FORMS = {
 }
 
 export const STATS = [
-  { label: 'Rooms Delivered', value: 5, suffix: '' },
+  { label: 'Rooms Delivered', value: 20, suffix: '+' },
   { label: 'Brand Partnerships', value: 18, suffix: '+' },
   { label: 'Certified Installs', value: 100, suffix: '%' },
   { label: 'Support Line', value: 24, suffix: '×7' },

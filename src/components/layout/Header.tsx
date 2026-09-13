@@ -48,12 +48,16 @@ export function Header() {
           : 'bg-gradient-to-b from-navy-900/70 to-transparent'
       }`}
     >
-      <div className="container-app flex h-[76px] items-center justify-between">
-        <Link to="/" className="group flex items-center gap-3">
-          <img src="/images/logo-mark.png" alt="AlKanz Infotech" className="h-10 w-10 object-contain drop-shadow-[0_2px_10px_rgba(211,166,74,0.25)] transition-transform duration-300 group-hover:scale-110" />
+      <div className="container-app flex h-[84px] items-center justify-between">
+        <Link to="/" className="group flex items-center gap-2.5" aria-label="AlKanz Infotech home">
+          <img
+            src="/images/logo-mark.webp"
+            alt=""
+            className="h-16 w-16 shrink-0 object-contain drop-shadow-[0_3px_12px_rgba(22,207,215,0.3)] transition-transform duration-300 group-hover:scale-105"
+          />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-[1.05rem] font-semibold text-white">AlKanz</span>
-            <span className="font-mono text-[0.6rem] uppercase tracking-[0.25em] text-gold-400/90">Infotech</span>
+            <span className="font-display text-[1.2rem] font-semibold tracking-tight text-white">AlKanz</span>
+            <span className="font-mono text-[0.63rem] uppercase tracking-[0.24em] text-cyan-300/90">Infotech</span>
           </span>
         </Link>
 

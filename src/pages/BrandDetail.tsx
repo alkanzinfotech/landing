@@ -10,10 +10,13 @@ import { CONTACT } from '../data/content'
 export function BrandDetail() {
   const { slug } = useParams<{ slug: string }>()
   const brand = getBrandBySlug(slug ?? '')
+  const isYealink = brand?.slug === 'yealink'
 
   useMeta(
-    brand ? brand.name : 'Brand not found',
-    brand?.description ?? 'Browse our authorized brand partners.',
+    isYealink ? 'Yealink Distributor Mumbai | MeetingBar A40 & MVC S40' : brand ? brand.name : 'Brand not found',
+    isYealink
+      ? 'Yealink video conferencing, MeetingBar A40, MVC S40, SmartVision 40, IP phones and Teams Rooms solutions in Mumbai from AlKanz Infotech.'
+      : brand?.description ?? 'Browse our authorized brand partners.',
   )
 
   if (!brand) return <Navigate to="/brands" replace />
@@ -82,6 +85,8 @@ export function BrandDetail() {
         </div>
       </section>
 
+      {isYealink && <YealinkMumbaiContent />}
+
       {related.length > 0 && (
         <section className="section-pad bg-cream/60">
           <div className="container-app">
@@ -134,5 +139,61 @@ export function BrandDetail() {
         </div>
       </section>
     </>
+  )
+}
+
+function YealinkMumbaiContent() {
+  const solutions = [
+    {
+      title: 'Yealink MeetingBar A40',
+      copy: 'An all-in-one video bar for premium small and medium meeting rooms, with dual 48MP cameras, intelligent framing and native Microsoft Teams and Zoom Rooms support.',
+    },
+    {
+      title: 'Yealink MVC S40 & SmartVision 40',
+      copy: 'The MVC S40 Microsoft Teams Rooms system combines the SmartVision 40 intelligent camera, MCore Pro mini-PC and MTouch console for small-to-medium rooms. “Yealink SV40” searches typically refer to SmartVision 40.',
+    },
+    {
+      title: 'Yealink Voice & Room Devices',
+      copy: 'We help businesses select and deploy Yealink IP phones, DECT wireless phones, conference phones, room panels, touch controllers and device-management solutions.',
+    },
+  ]
+
+  return (
+    <section className="section-pad bg-cream/60">
+      <div className="container-app">
+        <div className="max-w-3xl">
+          <span className="eyebrow">Yealink in Mumbai</span>
+          <h2 className="mt-3 text-balance text-3xl font-semibold sm:text-4xl">
+            Yealink video conferencing solutions for Mumbai businesses
+          </h2>
+          <p className="mt-5 text-base leading-relaxed text-ink-700/70">
+            Looking for a Yealink distributor in Mumbai or a Yealink partner in Mumbai? AlKanz Infotech helps teams plan, supply, install and support Yealink video conferencing and unified communications systems for boardrooms, huddle rooms and hybrid workplaces.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          {solutions.map((solution) => (
+            <article key={solution.title} className="rounded-3xl border border-ink-900/[0.06] bg-white p-7 shadow-card">
+              <h3 className="text-lg font-semibold">{solution.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-ink-700/65">{solution.copy}</p>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 rounded-3xl border border-ink-900/[0.06] bg-white p-7 sm:p-8">
+          <h3 className="text-xl font-semibold">Yealink Mumbai FAQs</h3>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            <div>
+              <h4 className="font-semibold">Can you help with Yealink MeetingBar A40 deployments in Mumbai?</h4>
+              <p className="mt-2 text-sm leading-relaxed text-ink-700/65">Yes. We can recommend the right room design, install the MeetingBar A40, configure Teams or Zoom Rooms, and support handover for your IT team.</p>
+            </div>
+            <div>
+              <h4 className="font-semibold">What is Yealink SV40?</h4>
+              <p className="mt-2 text-sm leading-relaxed text-ink-700/65">The product is called Yealink SmartVision 40. It is the intelligent all-in-one camera used in the Yealink MVC S40 Microsoft Teams Rooms solution.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

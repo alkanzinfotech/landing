@@ -32,9 +32,13 @@ export function HeroPanel() {
 
         <div className="relative overflow-hidden rounded-2xl">
           <img
-            src="/images/index/boardroom.jpg"
+            src="/images/index/boardroom-720.webp"
             alt="Conference room deployed by AlKanz Infotech"
             className="h-[280px] w-full object-cover sm:h-[340px]"
+            width="720"
+            height="356"
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/0 to-navy-900/10" />
 
@@ -90,7 +94,7 @@ export function HeroPanel() {
         className="absolute -bottom-8 -left-6 hidden w-52 rounded-2xl border border-ink-900/[0.06] bg-white p-4 shadow-card-lg sm:block animate-float"
       >
         <p className="font-mono text-[0.6rem] uppercase tracking-widest text-ink-700/50">Rooms Delivered</p>
-        <p className="font-display text-2xl font-semibold text-ink-900">5 <span className="text-gold-500">live</span></p>
+        <p className="font-display text-2xl font-semibold text-ink-900">20<span className="text-gold-500">+</span></p>
       </motion.div>
 
       <motion.div

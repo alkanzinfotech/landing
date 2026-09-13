@@ -59,7 +59,7 @@ export function Home() {
 
         <span
           aria-hidden
-          className="pointer-events-none absolute -left-10 top-6 select-none font-display text-[9rem] font-bold leading-none text-white/[0.03] sm:text-[13rem]"
+          className="pointer-events-none absolute -left-10 top-6 hidden select-none font-display text-[9rem] font-bold leading-none text-white/[0.03] sm:block sm:text-[13rem]"
           style={{ transform: 'rotate(-6deg)' }}
         >
           SIGNAL
@@ -79,12 +79,10 @@ export function Home() {
               />{' '}
               <SplitReveal text="not a shopping list" delay={0.15 + 7 * 0.06} />
             </h1>
-            <Reveal delay={0.7}>
-              <p className="mt-6 max-w-lg text-balance text-lg leading-relaxed text-white/65">
-                End-to-end design, supply and installation for huddle spaces, boardrooms,
-                auditoriums and training rooms — built by certified engineers, backed pan-India.
-              </p>
-            </Reveal>
+            <p className="mt-6 max-w-lg text-balance text-lg leading-relaxed text-white/65">
+              End-to-end design, supply and installation for huddle spaces, boardrooms,
+              auditoriums and training rooms — built by certified engineers, backed pan-India.
+            </p>
 
             <Reveal delay={0.8}>
               <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -244,7 +242,7 @@ export function Home() {
               to={`/brands/${b.slug}`}
               className="flex h-16 w-36 shrink-0 items-center justify-center rounded-xl border border-ink-900/[0.06] bg-white px-4 opacity-60 transition-all hover:opacity-100 hover:shadow-card"
             >
-              <img src={b.logo} alt={b.name} className="max-h-8 max-w-full object-contain" />
+              <img src={b.logo} alt={b.name} className="max-h-8 max-w-full object-contain" loading="lazy" decoding="async" />
             </Link>
           ))}
         </Marquee>

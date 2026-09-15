@@ -155,6 +155,71 @@ export const SOLUTIONS: Solution[] = [
   },
 ]
 
+export type DevService = {
+  slug: string
+  title: string
+  description: string
+  highlights: string[]
+  icon: 'website' | 'software' | 'app'
+}
+
+export const DEV_SERVICES: DevService[] = [
+  {
+    slug: 'website-development',
+    title: 'Website Development',
+    description:
+      'Fast, responsive websites and landing pages built for conversions — from company sites to product and campaign pages.',
+    highlights: [
+      'Custom design, not a template reskin',
+      'Responsive across mobile, tablet and desktop',
+      'SEO-friendly foundations from day one',
+      'CMS-backed or fully custom, your choice',
+    ],
+    icon: 'website',
+  },
+  {
+    slug: 'software-development',
+    title: 'Software Development',
+    description:
+      'Custom business software and internal tools that replace spreadsheets and manual processes with something built for how your team actually works.',
+    highlights: [
+      'Internal dashboards & admin panels',
+      'Workflow and process automation',
+      'Third-party integrations & APIs',
+      'Built to scale as your team grows',
+    ],
+    icon: 'software',
+  },
+  {
+    slug: 'app-development',
+    title: 'App Development',
+    description:
+      'Mobile and web apps for your customers or your own team, from first prototype through to launch and support.',
+    highlights: [
+      'iOS, Android and cross-platform builds',
+      'Progressive web apps',
+      'Push notifications & offline support',
+      'App store submission handled for you',
+    ],
+    icon: 'app',
+  },
+]
+
+export const DEV_PROCESS = [
+  { num: '01', title: 'Discover', description: 'Understand your goals, users and existing systems.' },
+  { num: '02', title: 'Design', description: 'Wireframes and UI design built around your brand.' },
+  { num: '03', title: 'Build', description: 'Iterative development with regular check-ins.' },
+  { num: '04', title: 'Test', description: 'QA across devices, browsers and real-world scenarios.' },
+  { num: '05', title: 'Launch & Support', description: 'Deployment, handover training and ongoing support.' },
+]
+
+export const DEV_WHY_US = [
+  { title: 'One Team, Start to Finish', description: 'The same team designs, builds and supports your project — no handoffs.' },
+  { title: 'Built to Scale', description: 'Architecture that grows with your business instead of needing a rebuild.' },
+  { title: 'Transparent Timelines', description: 'Clear milestones and regular updates, no black-box development.' },
+  { title: 'Support After Launch', description: 'We stay on for fixes, updates and new features after you go live.' },
+]
+
 export const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'Solutions', to: '/solutions' },

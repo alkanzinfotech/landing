@@ -13,6 +13,7 @@ import { Home } from './pages/Home'
 
 const About = lazy(() => import('./pages/About').then((m) => ({ default: m.About })))
 const Solutions = lazy(() => import('./pages/Solutions').then((m) => ({ default: m.Solutions })))
+const Development = lazy(() => import('./pages/Development').then((m) => ({ default: m.Development })))
 const Brands = lazy(() => import('./pages/Brands').then((m) => ({ default: m.Brands })))
 const BrandDetail = lazy(() => import('./pages/BrandDetail').then((m) => ({ default: m.BrandDetail })))
 const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.Contact })))
@@ -45,6 +46,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/solutions" element={<Solutions />} />
+              <Route path="/development" element={<Development />} />
               <Route path="/brands" element={<Brands />} />
               <Route path="/brands/:slug" element={<BrandDetail />} />
               <Route path="/contact" element={<Contact />} />

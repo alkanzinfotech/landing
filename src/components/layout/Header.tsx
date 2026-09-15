@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, ExternalLink, Menu, Phone, X } from 'lucide-react'
+import { ChevronDown, ExternalLink, Menu, X } from 'lucide-react'
 import { brands, categoryLabels } from '../../data/brands'
-import { COMPARE_URL, CONTACT } from '../../data/content'
+import { COMPARE_URL } from '../../data/content'
 import { useLockBodyScroll } from '../../hooks/useLockBodyScroll'
 import { Magnetic } from '../ui/Magnetic'
 
 const NAV = [
   { label: 'Home', to: '/' },
   { label: 'Solutions', to: '/solutions' },
+  { label: 'Development', to: '/development' },
   { label: 'Configurator', to: '/configurator' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
@@ -62,7 +63,7 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
-          {NAV.slice(0, 2).map((item) => (
+          {NAV.slice(0, 3).map((item) => (
             <HeaderLink key={item.to} to={item.to} label={item.label} />
           ))}
 
@@ -127,16 +128,12 @@ export function Header() {
             <ExternalLink size={12} />
           </a>
 
-          {NAV.slice(3).map((item) => (
+          {NAV.slice(4).map((item) => (
             <HeaderLink key={item.to} to={item.to} label={item.label} />
           ))}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <a href={CONTACT.phoneHref} className="flex items-center gap-2 text-sm font-medium text-white/80 hover:text-white">
-            <Phone size={15} />
-            {CONTACT.phone}
-          </a>
           <Magnetic>
             <Link to="/contact" className="btn-gold !py-2.5 !px-5 text-[0.85rem]">
               Get a Quote
@@ -193,9 +190,6 @@ export function Header() {
                   {item.label}
                 </Link>
               ))}
-              <a href={CONTACT.phoneHref} className="mt-3 flex items-center gap-2 px-3 text-sm text-white/70">
-                <Phone size={15} /> {CONTACT.phone}
-              </a>
               <Link to="/contact" className="btn-gold mt-3 w-full">
                 Get a Quote
               </Link>

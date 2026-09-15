@@ -52,6 +52,7 @@ export function Footer() {
               { label: 'About Us', to: '/about' },
               { label: 'Brands', to: '/brands' },
               { label: 'Solutions', to: '/solutions' },
+              { label: 'Development', to: '/development' },
               { label: 'Contact', to: '/contact' },
             ]}
           />

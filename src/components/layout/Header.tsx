@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronDown, Menu, Phone, X } from 'lucide-react'
+import { ChevronDown, ExternalLink, Menu, Phone, X } from 'lucide-react'
 import { brands, categoryLabels } from '../../data/brands'
-import { CONTACT } from '../../data/content'
+import { COMPARE_URL, CONTACT } from '../../data/content'
 import { useLockBodyScroll } from '../../hooks/useLockBodyScroll'
 import { Magnetic } from '../ui/Magnetic'
 
@@ -115,7 +115,19 @@ export function Header() {
             </AnimatePresence>
           </div>
 
-          {NAV.slice(2).map((item) => (
+          <HeaderLink to="/configurator" label="Configurator" />
+
+          <a
+            href={COMPARE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-white/80 transition-colors hover:text-white"
+          >
+            Compare
+            <ExternalLink size={12} />
+          </a>
+
+          {NAV.slice(3).map((item) => (
             <HeaderLink key={item.to} to={item.to} label={item.label} />
           ))}
         </nav>
@@ -151,7 +163,7 @@ export function Header() {
             className="overflow-hidden border-t border-white/10 bg-navy-900 lg:hidden"
           >
             <div className="container-app flex flex-col gap-1 py-6">
-              {NAV.map((item) => (
+              {NAV.slice(0, 3).map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
@@ -163,6 +175,24 @@ export function Header() {
               <Link to="/brands" className="rounded-xl px-3 py-3 text-base font-medium text-white/85 hover:bg-white/5">
                 Brands
               </Link>
+              <a
+                href={COMPARE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 rounded-xl px-3 py-3 text-base font-medium text-white/85 hover:bg-white/5"
+              >
+                Compare
+                <ExternalLink size={14} />
+              </a>
+              {NAV.slice(3).map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className="rounded-xl px-3 py-3 text-base font-medium text-white/85 hover:bg-white/5"
+                >
+                  {item.label}
+                </Link>
+              ))}
               <a href={CONTACT.phoneHref} className="mt-3 flex items-center gap-2 px-3 text-sm text-white/70">
                 <Phone size={15} /> {CONTACT.phone}
               </a>

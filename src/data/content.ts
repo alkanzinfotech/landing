@@ -21,6 +21,8 @@ export const WEB3FORMS = {
   accessKey: 'e3323258-9a61-43dc-b524-9c7be08477a0',
 }
 
+export const COMPARE_URL = 'https://compare.alkanzinfotech.in'
+
 export const STATS = [
   { label: 'Rooms Delivered', value: 20, suffix: '+' },
   { label: 'Brand Partnerships', value: 18, suffix: '+' },

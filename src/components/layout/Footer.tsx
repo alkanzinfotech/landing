@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react'
-import { CONTACT } from '../../data/content'
+import { ExternalLink, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react'
+import { COMPARE_URL, CONTACT } from '../../data/content'
 import { NetworkField } from '../illustrations/NetworkField'
 
 export function Footer() {
@@ -63,6 +63,7 @@ export function Footer() {
               { label: 'Training Rooms', to: '/solutions' },
               { label: 'CCTV & Access', to: '/solutions' },
               { label: 'Room Configurator', to: '/configurator' },
+              { label: 'Compare Products', to: COMPARE_URL, external: true },
             ]}
           />
 
@@ -96,16 +97,35 @@ export function Footer() {
   )
 }
 
-function FooterCol({ title, links }: { title: string; links: { label: string; to: string }[] }) {
+function FooterCol({
+  title,
+  links,
+}: {
+  title: string
+  links: { label: string; to: string; external?: boolean }[]
+}) {
   return (
     <div>
       <h4 className="font-display text-sm font-semibold uppercase tracking-wide text-white/90">{title}</h4>
       <div className="mt-5 flex flex-col gap-3 text-sm text-white/60">
-        {links.map((l) => (
-          <Link key={l.label} to={l.to} className="w-fit link-underline hover:text-white">
-            {l.label}
-          </Link>
-        ))}
+        {links.map((l) =>
+          l.external ? (
+            <a
+              key={l.label}
+              href={l.to}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-fit items-center gap-1.5 link-underline hover:text-white"
+            >
+              {l.label}
+              <ExternalLink size={12} />
+            </a>
+          ) : (
+            <Link key={l.label} to={l.to} className="w-fit link-underline hover:text-white">
+              {l.label}
+            </Link>
+          ),
+        )}
       </div>
     </div>
   )
